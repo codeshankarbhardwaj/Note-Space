@@ -24,6 +24,17 @@ function App() {
     setSelectedNoteId(newNote.id);
   };
 
+  const addSubNote = (note) => {
+    const subNote = {
+      id: Date.now(),
+      title: "New Sub Note",
+      content: "",
+      parentId:note.id,
+    }
+    setNotes([subNote, ...notes]);
+    setSelectedNoteId(subNote.id);
+  }
+
   const updateNote = (id, updatedFields) => {
     setNotes(
       notes.map((note) =>
@@ -48,6 +59,7 @@ function App() {
         onSelectNote={setSelectedNoteId}
         onAddNote={addNote}
         onDeleteNote={deleteNote}
+        onAddSubNote={addSubNote}
       />
       <Editor note={selectedNote} onUpdateNote={updateNote} />
     </div>

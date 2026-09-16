@@ -4,7 +4,7 @@ function stripHtml(html) {
   return tmp.textContent || tmp.innerText || "";
 }
 
-function Section({ notes, selectedNoteId, onSelectNote, onAddNote, onDeleteNote }) {
+function Section({ notes, selectedNoteId, onSelectNote, onAddNote, onDeleteNote, onAddSubNote }) {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
@@ -30,7 +30,8 @@ function Section({ notes, selectedNoteId, onSelectNote, onAddNote, onDeleteNote 
               <h4>{note.title || "Untitled"}</h4>
               <p>{stripHtml(note.content).slice(0, 40) || "No content yet..."}</p>
             </div>
-            <button className="add-sub-note-btn">
+            <button className="add-sub-note-btn" onClick={(e) => { e.stopPropagation;
+            onAddSubNote(note);}}>
               <span className="plus-icon2">+</span>Sub-note
             </button>
             <button
