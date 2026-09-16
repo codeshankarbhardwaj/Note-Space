@@ -5,8 +5,8 @@ import Editor from "./components/editor";
 
 function App() {
   const [notes, setNotes] = useState([
-    { id: 1, title: "My trip experience", content: "Lorem ipsum dolor sit amet..." },
-    { id: 2, title: "Day and night plan", content: "Lorem ipsum dolor sit amet..." },
+    { id: 1, title: "My trip experience", content: "" },
+    { id: 2, title: "Day and night plan", content: "" },
   ]);
 
   const [selectedNoteId, setSelectedNoteId] = useState(1);
