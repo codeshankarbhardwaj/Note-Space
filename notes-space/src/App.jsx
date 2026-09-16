@@ -5,8 +5,8 @@ import Editor from "./components/editor";
 
 function App() {
   const [notes, setNotes] = useState([
-    { id: 1, title: "My trip experience", content: "" },
-    { id: 2, title: "Day and night plan", content: "" },
+    { id: 1, title: "Add Title - 1", content: "Write your content", parentId: null},
+    { id: 2, title: "Add Title - 2", content: "Write your content", parentId: null },
   ]);
 
   const [selectedNoteId, setSelectedNoteId] = useState(1);
@@ -18,6 +18,7 @@ function App() {
       id: Date.now(),
       title: "New Note",
       content: "",
+      parentId: null
     };
     setNotes([newNote, ...notes]);
     setSelectedNoteId(newNote.id);
@@ -36,6 +37,7 @@ function App() {
     if (selectedNoteId === id && notes.length > 1) {
       setSelectedNoteId(notes[0].id);
     }
+    0
   };
 
   return (

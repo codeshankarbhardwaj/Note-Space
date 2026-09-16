@@ -180,3 +180,25 @@ body {
   min-height: 300px;
   color: #555;
 }
+
+
+.add-sub-note-btn {
+  background: linear-gradient(135deg, #cf66b7, #6487bf);
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 30px;
+  font-size: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  margin-bottom: 14px;
+  transition: opacity 0.2s;
+}
+
+.add-sub-note-btn:hover {
+  opacity: 0.9;
+}
