@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Section from "./components/section";
 import Editor from "./components/editor";
 
 
 function App() {
-  const [notes, setNotes] = useState([
+
+  const [notes, setNotes] = useState(() => {
+    const saved = localStorage.getItem("notes");
+    return saved ? JSON.parse(saved) :  [
     { id: 1, title: "Add Title - 1", content: "Write your content", parentId: null},
     { id: 2, title: "Add Title - 2", content: "Write your content", parentId: null },
-  ]);
+  ];
+});
 
+useEffect(() => {                               
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
   const [selectedNoteId, setSelectedNoteId] = useState(1);
 
   const selectedNote = notes.find((note) => note.id === selectedNoteId);
